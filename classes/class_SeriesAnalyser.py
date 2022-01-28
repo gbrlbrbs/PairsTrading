@@ -454,7 +454,7 @@ class SeriesAnalyser:
         total_pairs, total_pairs_fail_criteria = [], []
         n_clusters = len(clustered_series.value_counts())
         for clust in range(n_clusters):
-            sys.stdout.write("\r"+'Cluster {}/{}'.format(clust+1, n_clusters))
+            sys.stdout.write("\r"+'Cluster {}/{}\n'.format(clust+1, n_clusters))
             sys.stdout.flush()
             symbols = list(clustered_series[clustered_series == clust].index)
             cluster_pricing_train = pricing_df_train[symbols]

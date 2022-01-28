@@ -1,3 +1,4 @@
+from typing import Tuple
 import pandas as pd
 import numpy as np
 from openpyxl import load_workbook
@@ -78,7 +79,7 @@ class DataProcessor:
 
         return df_returns
 
-    def split_data(self, df_prices, training_dates, testing_dates, remove_nan=True):
+    def split_data(self, df_prices, training_dates, testing_dates, remove_nan=True) -> Tuple[pd.DataFrame, pd.DataFrame]:
         """
         This function splits a dataframe into training and validation sets
         :param df_prices: dataframe containing prices for all dates
@@ -90,7 +91,7 @@ class DataProcessor:
         :return: df with testing prices
         """
         if remove_nan:
-            dataset_mask = ((df_prices.index >= training_dates[0]) &\
+            dataset_mask = ((df_prices.index >= training_dates[0]) &
                             (df_prices.index <= testing_dates[1]))
             df_prices_dataset = df_prices[dataset_mask]
             print('Total of {} tickers'.format(df_prices_dataset.shape[1]))

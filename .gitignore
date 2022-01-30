@@ -2,3 +2,4 @@
 /data/*
 !/data/link_to_data.txt
 /classes/__pycache__
+/notebooks/*.png
